@@ -1,6 +1,9 @@
 var path = require('path');
 
 module.exports = {
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
+    },
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'lib'),
@@ -10,12 +13,9 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
+            test: /\.tsx?$/,
             use: [{
-                loader: 'babel-loader',
-                query: {
-                    presets: ['babili']
-                }
+                loader: 'awesome-typescript-loader'
             }]
         }]
     }

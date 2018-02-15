@@ -1,6 +1,9 @@
 var path = require('path');
 
 module.exports = {
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
+    },
     devtool: '#source-map',
     entry: './src/index.js',
     output: {
@@ -11,10 +14,13 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
+            test: /\.tsx?$/,
             use: [{
-                loader: 'babel-loader'
+                loader: 'awesome-typescript-loader'
             }]
         }]
     }
 }
+
+// useBabel: true,
+// babelCore: "@babel/core",
